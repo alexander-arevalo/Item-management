@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .added-item-list {
   display: flex;
   flex-direction: column;
@@ -130,3 +131,137 @@
     width: 90%;
   }
 }
+=======
+.added-item-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin: 30px auto 0;
+  padding: 20px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.added-item-list h1 {
+  margin-bottom: 20px;
+}
+
+.added-item-list p {
+  font-style: italic;
+}
+
+.added-item-list ol {
+  list-style: none;
+  padding: 0;
+  width: 80%;
+}
+
+.added-item-list li {
+  margin-bottom: 10px;
+}
+
+.category-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.category {
+  padding: 5px;
+  background-color: lavender;
+  text-transform: uppercase;
+  word-break: break-all;
+  max-width: 80%;
+  border-radius: 5px;
+  margin-bottom: 0.3rem;
+}
+.category-name {
+  padding: 5px;
+  text-transform: uppercase;
+  word-break: break-all;
+  max-width: 80%;
+}
+
+.category-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  margin-top: 8px;
+  gap: 0.3rem;
+}
+
+.btn {
+  padding: 0.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-view {
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+}
+
+.btn-view:hover {
+  background-color: #007bff;
+}
+
+.btn-edit {
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+}
+
+.btn-edit:hover {
+  background-color: #ffc107;
+  color: black;
+}
+.btn-delete {
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+}
+.btn-delete:hover {
+  background-color: #dc3545;
+  border-radius: 6px;
+}
+
+.btn:hover {
+  opacity: 0.8;
+  padding: 0.2rem;
+  color: white;
+}
+.initial-value {
+  padding: 1rem;
+  border-radius: 3px;
+  text-align: center;
+}
+.btn-create {
+  border: 1px solid #007bff;
+  background-color: transparent;
+  width: 80%;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 425px) {
+  .added-item-list {
+    width: 80%;
+  }
+
+  .added-item-list ol {
+    width: 90%;
+  }
+
+  .category-actions {
+    width: 90%;
+  }
+}
+>>>>>>> 620d3da4743b2e7b8609e6f11c50a8b7523d03ab
