@@ -6,6 +6,7 @@ import "./Items.css";
 
 const Item = () => {
   const [item, setItem] = useState(null);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const { uuid } = useParams();
 
@@ -18,6 +19,7 @@ const Item = () => {
       } else {
         console.log("No data available");
       }
+      setLoading(false);
     };
 
     onValue(dbRef, onDataChange);
@@ -31,25 +33,29 @@ const Item = () => {
     <div className="item-container">
       <div className="item-details">
         <h1>Item Details</h1>
-        {item && (
-          <div className="item-details-text">
-            <div>
-              <p>Category:</p>
-              <p>Name:</p>
-              <p>Size:</p>
-              <p>Price:</p>
-              <p>Cost:</p>
-              <p>Amount In Stock:</p>
+        {loading ? (
+          <p className="fallback-fetching">Loading...</p>
+        ) : (
+          item && (
+            <div className="item-details-text">
+              <div>
+                <p>Category:</p>
+                <p>Name:</p>
+                <p>Size:</p>
+                <p>Price:</p>
+                <p>Cost:</p>
+                <p>Amount In Stock:</p>
+              </div>
+              <div>
+                <p>{item.category}</p>
+                <p>{item.name} </p>
+                <p>{item.size} </p>
+                <p>{item.price} </p>
+                <p>{item.cost} </p>
+                <p>{item.amountInStock}</p>
+              </div>
             </div>
-            <div>
-              <p>{item.category}</p>
-              <p>{item.name}</p>
-              <p>{item.size}</p>
-              <p>{item.price}</p>
-              <p>{item.cost}</p>
-              <p>{item.amountInStock}</p>
-            </div>
-          </div>
+          )
         )}
 
         <span className="btn-container">

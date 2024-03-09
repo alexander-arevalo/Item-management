@@ -103,6 +103,7 @@
 .btn:hover {
   opacity: 0.8;
   padding: 0.2rem;
+  color: white;
 }
 .initial-value {
   padding: 1rem;
