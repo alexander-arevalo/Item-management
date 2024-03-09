@@ -11,6 +11,7 @@ const Home = () => {
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const [deleteCategoryId, setDeleteCategoryId] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const dbCategoriesRef = ref(db, "/Category");
@@ -29,6 +30,7 @@ const Home = () => {
         } else {
           console.log("No categories available");
         }
+        setLoading(false);
       });
     };
 
@@ -70,7 +72,9 @@ const Home = () => {
   return (
     <div className="added-item-list">
       <h1>All Categories</h1>
-      {categories.length === 0 ? (
+      {loading ? (
+        <p className="fallback-fetching">Loading...</p>
+      ) : categories.length === 0 ? (
         <div className="initial-value">
           <p>No categories available</p>
           <button

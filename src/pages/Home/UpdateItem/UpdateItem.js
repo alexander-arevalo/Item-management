@@ -63,12 +63,18 @@ const UpdateItem = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const isEmptyField = Object.values(formData).some((value) => value === "");
+    if (isEmptyField) {
+      enqueueSnackbar("Please fill in all fields", { variant: "error" });
+      return;
+    }
+
     const isDataChanged = Object.keys(formData).some(
       (key) => formData[key] !== item[key]
     );
 
     if (!isDataChanged) {
-      console.log("No changes were made.");
+      enqueueSnackbar("No changes were made.", { variant: "warning" });
       return;
     }
 
@@ -87,16 +93,21 @@ const UpdateItem = () => {
         <h1>Edit Item</h1>
         {item && (
           <form onSubmit={handleSubmit}>
+            <label htmlFor="category">Category:</label>
             <input
               type="text"
+              id="category"
               name="category"
               className="input-class"
               value={formData.category}
               onChange={handleInputChange}
               required
             />
+
+            <label htmlFor="name">Name:</label>
             <input
               type="text"
+              id="name"
               name="name"
               className="input-class"
               value={formData.name}
@@ -105,42 +116,56 @@ const UpdateItem = () => {
             />
 
             {!noSize && (
-              <select
-                name="size"
-                className="select-size"
-                value={formData.size}
-                onChange={handleInputChange}
-              >
-                <option value="">Select Size</option>
-                <option value="Small">Small</option>
-                <option value="Medium">Medium</option>
-                <option value="Large">Large</option>
-              </select>
+              <div>
+                <label htmlFor="size">Size:</label>
+                <select
+                  id="size"
+                  name="size"
+                  className="select-size"
+                  value={formData.size}
+                  onChange={handleInputChange}
+                >
+                  <option value="">Select Size</option>
+                  <option value="Small">Small</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Large">Large</option>
+                </select>
+              </div>
             )}
+
+            <label htmlFor="price">Price:</label>
             <input
               type="number"
+              id="price"
               name="price"
               className="input-class"
               value={formData.price}
               onChange={handleInputChange}
               required
             />
+
+            <label htmlFor="cost">Cost:</label>
             <input
               type="number"
+              id="cost"
               name="cost"
               className="input-class"
               value={formData.cost}
               onChange={handleInputChange}
               required
             />
+
+            <label htmlFor="amountInStock">Amount In Stock:</label>
             <input
               type="number"
+              id="amountInStock"
               name="amountInStock"
               className="input-class"
               value={formData.amountInStock}
               onChange={handleInputChange}
               required
             />
+
             <div className="checkbox-wrapper">
               <input
                 type="checkbox"
@@ -151,6 +176,7 @@ const UpdateItem = () => {
               />
               <label htmlFor="noSizeCheckbox">No Size</label>
             </div>
+
             <div className="button-wrapper">
               <button
                 type="button"
@@ -165,6 +191,8 @@ const UpdateItem = () => {
             </div>
           </form>
         )}
+
+        {!item && <p className="fallback-fetching">Loading...</p>}
       </div>
     </div>
   );
