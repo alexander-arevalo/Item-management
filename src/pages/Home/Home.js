@@ -13,13 +13,6 @@ const Home = () => {
   const [deleteCategoryId, setDeleteCategoryId] = useState(null);
 
   useEffect(() => {
-    console.log(
-      "Firebase Database URL:",
-      process.env.REACT_APP_FIREBASE_DATABASE_URL
-    );
-
-    console.log(process.env.REACT_APP_FIREBASE_API_KEY);
-
     const dbCategoriesRef = ref(db, "/Category");
 
     const fetchCategories = () => {

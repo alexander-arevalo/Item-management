@@ -27,8 +27,9 @@
   justify-content: flex-end;
   width: 80%;
   margin-top: 5px;
-  margin-left: 80px;
+  margin-left: 16%;
 }
+
 .btn-back {
   padding: 0.2rem;
   background-color: transparent;
@@ -42,6 +43,7 @@
   background-color: lightgreen;
   border: 2px solid lightgreen;
 }
+
 @media screen and (max-width: 425px) {
   .item-container {
     height: auto;
@@ -53,6 +55,8 @@
   }
 
   .btn-container {
+    display: flex;
+    justify-content: flex-end;
     width: 90%;
     margin-left: auto;
   }

@@ -28,7 +28,6 @@ const UpdateItem = () => {
         if (snapshot.exists()) {
           setItem(snapshot.val());
           setFormData(snapshot.val());
-          // Check if size is "No Size"
           if (snapshot.val().size === "No Size") {
             setNoSize(true);
           }
@@ -54,7 +53,6 @@ const UpdateItem = () => {
 
   const handleNoSizeChange = () => {
     setNoSize((prevNoSize) => !prevNoSize);
-    // Set size to "No Size" if checkbox is checked
     if (!noSize) {
       setFormData({ ...formData, size: "No Size" });
     } else {
